@@ -4,6 +4,7 @@ from sklearn.tree import DecisionTreeClassifier
 google_rating = pd.read_csv("googleplaystore.csv")
 google_rating_top = google_rating.head()
 
+#Printing the top 5 lines of the csv file
 print(google_rating_top)
 
 X = google_rating.drop(columns=['Rating'])
@@ -16,5 +17,8 @@ dtmodel.fit(X_train, y_train)
 
 predictions = model.predict(X_test)
 
+#Outputting the score
 score = accuracy_score(y_test, predictions)
 print(score)
+
+
