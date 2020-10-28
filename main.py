@@ -9,7 +9,8 @@ google_rating_top = google_rating.head()
 #Printing the top 5 lines of the csv file
 print(google_rating_top)
 
-X = google_rating.drop(columns=['Rating'])
+X = google_rating.drop(columns=['App', 'Category', 'Rating', "Last Updated", 
+								"Android Ver", "Current Ver"])
 y = google_rating['Rating']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state = 1)
