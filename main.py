@@ -1,3 +1,4 @@
+#Using Decision Tree
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
@@ -12,7 +13,7 @@ print(google_rating_top)
 X = google_rating.drop(columns=['App', 'Category', 'Rating', "Last Updated",
 								"Android Ver", "Current Ver", "Genres"])
 y = google_rating['Rating']
-
+# Splitting it so I can test It later
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state = 1)
 
 dtmodel = DecisionTreeClassifier()
@@ -20,7 +21,7 @@ dtmodel.fit(X_train, y_train)
 
 predictions = dtmodel.predict(X_test)
 
-# Outputting the score
+# Outputting the score, its 90.32%
 score = accuracy_score(y_test, predictions)
 print(score)
 
